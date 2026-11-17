@@ -1,0 +1,21 @@
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "outDir": "./dist",
+    "removeComments": true,
+    "strictPropertyInitialization": false,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "isolatedModules": false
+  }
+}

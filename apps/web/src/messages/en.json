@@ -1,0 +1,691 @@
+
+{
+  "Header": {
+    "home": "Home",
+    "buy": "Buy Property",
+    "rent": "Rent Property",
+    "categories": "Categories",
+    "about": "About Us",
+    "contact": "Contact",
+    "login": "Login",
+    "postProperty": "Post Your Property"
+  },
+  "Footer": {
+    "aboutTitle": "About Property Marketplace",
+    "aboutText": "A trusted platform for buying, selling, and renting properties across Bangladesh. Every listing is reviewed by our team before publication.",
+    "quickLinks": "Quick Links",
+    "locationsTitle": "Locations",
+    "contactTitle": "Contact Us",
+    "linkHome": "Home",
+    "linkBuy": "Buy Property",
+    "linkRent": "Rent Property",
+    "linkPost": "Post Property",
+    "linkAbout": "About Us",
+    "linkContact": "Contact",
+    "rights": "All rights reserved."
+  },
+
+  "Home": {
+    "meta": {
+      "title": "Property Marketplace — Buy, Sell & Rent in Bangladesh",
+      "description": "Find reviewed listings for sale and rent across Bangladesh. Every property is verified by our team before publication."
+    },
+    "heroTitle": "Find a property that feels like home.",
+    "heroSubtitle": "Explore reviewed listings for sale and rent across Bangladesh.",
+    "searchBuy": "Buy",
+    "searchRent": "Rent",
+    "searchType": "Property Type",
+    "searchTypePlaceholder": "Any type",
+    "searchLocation": "Location",
+    "searchLocationPlaceholder": "Any district",
+    "searchButton": "Search Properties",
+    "comingSoon": "Full listing search is coming soon.",
+    "featured": {
+      "title": "Featured Properties",
+      "subtitle": "Hand-picked listings from our team.",
+      "viewAll": "View all featured"
+    },
+    "recent": {
+      "title": "Recently Published",
+      "subtitle": "The latest listings to hit the platform.",
+      "viewAll": "View all new listings"
+    },
+    "categories": {
+      "title": "Browse by Category",
+      "subtitle": "Pick the type of property you're looking for.",
+      "subtypes": "subtypes"
+    },
+    "divisions": {
+      "title": "Browse by Division",
+      "subtitle": "Explore listings across every region of Bangladesh."
+    },
+    "why": {
+      "title": "Why Choose Us",
+      "reviewedTitle": "Reviewed Listings",
+      "reviewedBody": "Every property is verified by our team before appearing on the site.",
+      "searchTitle": "Easy Search",
+      "searchBody": "Filter by purpose, category, price, bedrooms and location.",
+      "supportTitle": "Reliable Support",
+      "supportBody": "Direct assistance from our team — no middleman complications.",
+      "contactTitle": "Direct Coordination",
+      "contactBody": "We connect buyers and sellers and handle every inquiry."
+    }
+  },
+
+  "Auth": {
+    "loginTitle": "Log in to your account",
+    "loginSubtitle": "Enter your phone number or email to continue.",
+    "registerTitle": "Create your account",
+    "registerSubtitle": "Register with your phone number. Email is optional.",
+    "identifierLabel": "Phone or Email",
+    "identifierPlaceholder": "01XXXXXXXXX or you@example.com",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "nameLabel": "Full Name",
+    "phoneLabel": "Phone Number",
+    "emailLabel": "Email",
+    "optional": "optional",
+    "loginButton": "Log in",
+    "registerButton": "Create account",
+    "loggingIn": "Logging in…",
+    "registering": "Creating account…",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "registerLink": "Register",
+    "loginLink": "Log in",
+    "logout": "Log out",
+    "myAccount": "My Account",
+    "myProperties": "My Properties",
+    "genericError": "Something went wrong. Please try again."
+  },
+
+  "Account": {
+    "title": "My Account",
+    "subtitle": "Your registered details.",
+    "loading": "Loading…",
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "role": "Role"
+    }
+  },
+
+  "Sell": {
+    "title": "Post your property",
+    "subtitle": "Fill in the details below. Your listing will be reviewed by our team before it appears on the website.",
+    "loading": "Loading form…",
+    "step": {
+      "1": "Basic Info",
+      "2": "Location",
+      "3": "Details & Pricing",
+      "4": "Images"
+    },
+    "images": {
+      "title": "Property Images",
+      "subtitle": "Upload clear photos of the property. The first image will be used as the cover unless you change it.",
+      "hint": "You can upload up to 20 images. JPG, PNG, WebP · Max 10MB each."
+    },
+    "purpose": { "SALE": "For Sale", "RENT": "For Rent", "LEASE": "For Lease" },
+    "fields": {
+      "purpose": "Purpose",
+      "category": "Property Type",
+      "title": "Listing Title",
+      "description": "Description",
+      "division": "Division",
+      "district": "District",
+      "areaLocality": "Area / Locality",
+      "fullAddress": "Full Address",
+      "price": "Asking Price",
+      "priceUnit": "Unit",
+      "negotiable": "Price is negotiable",
+      "landSize": "Land Size",
+      "buildingSize": "Building Size",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "floors": "Floors",
+      "condition": "Condition",
+      "ownership": "Ownership Type",
+      "sellerNotes": "Private Notes"
+    },
+    "placeholders": {
+      "category": "Select a property type",
+      "title": "e.g. 3 Bedroom Family Flat in Dhanmondi",
+      "description": "Describe the property — layout, surroundings, nearby facilities…",
+      "division": "Select division",
+      "district": "Select district",
+      "areaLocality": "e.g. Road 8, Dhanmondi",
+      "fullAddress": "House / Flat number, road, block",
+      "sellerNotes": "Any additional notes (visible only to our team)",
+      "optional": "Optional"
+    },
+    "priceUnit": {
+      "TOTAL": "Total",
+      "PER_KATHA": "Per Katha",
+      "PER_SQFT": "Per Sq.Ft.",
+      "PER_MONTH": "Per Month"
+    },
+    "areaUnit": {
+      "KATHA": "Katha",
+      "BIGHA": "Bigha",
+      "DECIMAL": "Decimal",
+      "ACRE": "Acre",
+      "SQFT": "Sq.Ft.",
+      "SQM": "Sq.M."
+    },
+    "condition": {
+      "NEW": "New",
+      "EXCELLENT": "Excellent",
+      "GOOD": "Good",
+      "FAIR": "Fair",
+      "NEEDS_RENOVATION": "Needs Renovation"
+    },
+    "ownership": {
+      "FREEHOLD": "Freehold",
+      "LEASEHOLD": "Leasehold",
+      "GOVERNMENT": "Government",
+      "UNKNOWN": "Unknown"
+    },
+    "private": "not shown publicly",
+    "actions": {
+      "back": "Back",
+      "saveDraft": "Save as Draft",
+      "saveAndContinue": "Save & Continue",
+      "saving": "Saving…",
+      "submitForReview": "Submit for Review",
+      "submitting": "Submitting…"
+    },
+    "err": {
+      "categoryRequired": "Please select a property type.",
+      "titleTooShort": "Title must be at least 5 characters.",
+      "descTooShort": "Description must be at least 20 characters.",
+      "divisionRequired": "Please select a division.",
+      "districtRequired": "Please select a district.",
+      "areaRequired": "Please enter the area / locality.",
+      "addressRequired": "Please enter the full address.",
+      "priceRequired": "Please enter an asking price.",
+      "generic": "Something went wrong. Please try again.",
+      "completeEarlierSteps": "Please complete the earlier steps before submitting."
+    }
+  },
+
+  "MyProperties": {
+    "title": "My Properties",
+    "subtitle": "Manage your listings and track their review status.",
+    "newProperty": "Add New",
+    "loading": "Loading…",
+    "empty": "You haven't posted any properties yet.",
+    "createFirst": "Post your first property",
+    "untitled": "(Untitled draft)",
+    "loadError": "Failed to load properties.",
+    "columns": {
+      "property": "Property",
+      "category": "Category",
+      "status": "Status",
+      "updated": "Created",
+      "actions": "Actions"
+    },
+    "view": "View"
+  },
+
+  "Properties": {
+    "titleAll": "Properties for Sale & Rent",
+    "titleBuy": "Properties for Sale",
+    "titleRent": "Properties for Rent",
+    "subtitle": "Browse every reviewed listing across Bangladesh.",
+    "loading": "Loading properties…",
+    "loadError": "Failed to load properties.",
+    "noResults": "No properties match your search. Try widening the filters.",
+    "resultCount": "{count} properties found",
+    "filters": {
+      "purpose": "Purpose",
+      "any": "Any",
+      "buy": "Buy",
+      "rent": "Rent",
+      "keyword": "Keyword",
+      "keywordPlaceholder": "Title or area…",
+      "category": "Property type",
+      "anyCategory": "Any category",
+      "priceRange": "Price range",
+      "min": "Min",
+      "max": "Max",
+      "bedrooms": "Bedrooms",
+      "sort": "Sort by",
+      "sortNewest": "Newest first",
+      "sortOldest": "Oldest first",
+      "sortPriceAsc": "Price: low to high",
+      "sortPriceDesc": "Price: high to low",
+      "apply": "Apply filters"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}"
+    }
+  },
+
+  "PropertyCard": {
+    "noImage": "No image",
+    "featured": "Featured",
+    "beds": "beds",
+    "baths": "baths",
+    "viewDetails": "View details"
+  },
+
+  "PropertyDetail": {
+    "loading": "Loading…",
+    "loadError": "Failed to load this property.",
+    "notFound": "Property not found.",
+    "backToList": "Back to My Properties",
+    "backToSearch": "Back to search",
+    "continueEditing": "Continue editing",
+    "untitled": "(Untitled draft)",
+    "rejectionReason": "Rejection reason",
+    "changeRequestNote": "Changes requested",
+    "sold": "Sold",
+    "rented": "Rented",
+    "yes": "Yes",
+    "no": "No",
+    "images": {
+      "heading": "Images ({count})",
+      "cover": "Cover"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "properties": "Properties"
+    },
+    "sections": {
+      "description": "Description",
+      "features": "Features",
+      "location": "Location"
+    },
+    "fields": {
+      "purpose": "Purpose",
+      "category": "Property type",
+      "price": "Asking Price",
+      "submittedAt": "Submitted",
+      "createdAt": "Created",
+      "landSize": "Land size",
+      "buildingSize": "Building size",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "floors": "Floors",
+      "condition": "Condition",
+      "ownership": "Ownership",
+      "negotiable": "Negotiable",
+      "division": "Division",
+      "district": "District",
+      "upazila": "Upazila",
+      "area": "Area / Locality",
+      "address": "Full address"
+    },
+    "condition": {
+      "NEW": "New",
+      "EXCELLENT": "Excellent",
+      "GOOD": "Good",
+      "FAIR": "Fair",
+      "NEEDS_RENOVATION": "Needs renovation"
+    },
+    "ownership": {
+      "FREEHOLD": "Freehold",
+      "LEASEHOLD": "Leasehold",
+      "GOVERNMENT": "Government",
+      "UNKNOWN": "Unknown"
+    },
+    "purpose": {
+      "SALE": "For Sale",
+      "RENT": "For Rent",
+      "LEASE": "For Lease"
+    },
+    "gallery": {
+      "noImages": "No images available.",
+      "openLightbox": "Open larger image",
+      "viewImage": "View image {n}",
+      "close": "Close",
+      "prev": "Previous image",
+      "next": "Next image"
+    },
+    "contact": {
+      "heading": "Interested in this property?",
+      "subtitle": "Contact our property team for more information or to arrange a visit.",
+      "hotline": "Hotline",
+      "orForm": "Or send us an inquiry"
+    }
+  },
+
+  "InquiryForm": {
+    "name": "Your name",
+    "phone": "Phone number",
+    "email": "Email",
+    "optional": "optional",
+    "preferredContactTime": "Preferred contact time",
+    "preferredContactTimePlaceholder": "e.g. Evening 6–9 PM",
+    "message": "Message",
+    "messagePlaceholder": "Tell us what you'd like to know…",
+    "send": "Send inquiry",
+    "sending": "Sending…",
+    "successTitle": "Inquiry received",
+    "successMessage": "Our team will contact you shortly.",
+    "privacyNote": "Your details are only visible to our team and never shared with the seller directly.",
+    "genericError": "Something went wrong. Please try again."
+  },
+
+  "Images": {
+    "loading": "Loading images…",
+    "loadError": "Failed to load images.",
+    "dropTitle": "Click to upload or drag and drop",
+    "dropSubtitle": "JPG, PNG, or WebP · Max 10MB each · Up to 20 images",
+    "dropNow": "Drop images here",
+    "counter": "{current} / {max} images",
+    "uploading": "Uploading…",
+    "uploadError": "Upload failed. Please try again.",
+    "invalidType": "Invalid file type: {files}",
+    "tooLarge": "File too large (max {mb}MB): {files}",
+    "maxReached": "Maximum {max} images allowed.",
+    "cover": "Cover",
+    "setCover": "Set as cover",
+    "delete": "Delete image",
+    "moveUp": "Move left",
+    "moveDown": "Move right",
+    "confirmDelete": "Delete this image?"
+  },
+
+  "Notifications": {
+    "title": "Notifications",
+    "subtitle": "Everything that needs your attention.",
+    "loading": "Loading notifications…",
+    "empty": "No notifications yet.",
+    "new": "new",
+    "markAllRead": "Mark all as read",
+    "viewAll": "View all notifications"
+  },
+
+  "Admin": {
+    "nav": {
+      "heading": "Admin Panel",
+      "dashboard": "Dashboard",
+      "properties": "Properties",
+      "inquiries": "Inquiries",
+      "users": "Users",
+      "auditLogs": "Audit Logs"
+    },
+    "guard": {
+      "loading": "Verifying access…"
+    },
+    "common": {
+      "loading": "Loading…",
+      "search": "Search",
+      "previous": "Prev",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "subtitle": "A quick look at your marketplace activity.",
+      "loadError": "Failed to load dashboard.",
+      "loading": "Loading dashboard…",
+      "stats": {
+        "totalProperties": "Total Properties",
+        "pending": "Pending Review",
+        "published": "Published",
+        "newUsersThisWeek": "New Users (7d)",
+        "totalUsers": "Total Users",
+        "rejected": "Rejected",
+        "drafts": "Drafts",
+        "newInquiries": "New Inquiries"
+      },
+      "recentPending": "Recent Submissions",
+      "viewAll": "View all",
+      "noPending": "No properties awaiting review.",
+      "review": "Review",
+      "columns": {
+        "property": "Property",
+        "seller": "Seller",
+        "submitted": "Submitted",
+        "action": "Action"
+      }
+    },
+    "properties": {
+      "title": "Properties",
+      "subtitle": "Review and moderate every listing across the platform.",
+      "loadError": "Failed to load properties.",
+      "searchPlaceholder": "Search by title, seller, phone…",
+      "empty": "No properties match this filter.",
+      "open": "Open",
+      "tabs": {
+        "pending": "Pending Review",
+        "approved": "Approved",
+        "published": "Published",
+        "rejected": "Rejected",
+        "changesRequested": "Changes Requested",
+        "all": "All"
+      },
+      "columns": {
+        "property": "Property",
+        "seller": "Seller",
+        "price": "Price",
+        "status": "Status",
+        "submitted": "Submitted",
+        "action": "Action"
+      }
+    },
+    "detail": {
+      "backToList": "Back to properties",
+      "loading": "Loading property…",
+      "notFound": "Property not found.",
+      "sections": {
+        "summary": "Summary",
+        "seller": "Seller",
+        "images": "Images",
+        "description": "Description",
+        "location": "Location & Details",
+        "moderation": "Moderation History",
+        "actions": "Actions",
+        "internalNotes": "Internal Notes"
+      },
+      "fields": {
+        "status": "Status",
+        "purpose": "Purpose",
+        "category": "Category",
+        "price": "Price",
+        "negotiable": "Negotiable",
+        "landSize": "Land Size",
+        "buildingSize": "Building Size",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "floors": "Floors",
+        "condition": "Condition",
+        "ownership": "Ownership",
+        "district": "District",
+        "area": "Area",
+        "address": "Full Address",
+        "submitted": "Submitted",
+        "published": "Published",
+        "sellerName": "Name",
+        "sellerEmail": "Email",
+        "sellerPhone": "Phone",
+        "sellerSince": "Member since",
+        "sellerNotes": "Seller's Notes",
+        "internalNotes": "Internal Notes (private)"
+      },
+      "actions": {
+        "approve": "Approve",
+        "approveAndPublish": "Approve & Publish",
+        "reject": "Reject",
+        "requestChanges": "Request Changes",
+        "publish": "Publish",
+        "archive": "Archive",
+        "cancel": "Cancel",
+        "submitting": "Submitting…"
+      },
+      "forms": {
+        "approveNote": "Optional note for the audit trail",
+        "approvePublishCheckbox": "Publish immediately after approval",
+        "rejectReason": "Rejection reason (visible to seller)",
+        "changesNote": "Describe the changes required (visible to seller)",
+        "archiveNote": "Optional reason for archiving"
+      },
+      "flash": {
+        "approved": "Property approved.",
+        "published": "Property published.",
+        "rejected": "Property rejected.",
+        "changesRequested": "Change request sent to seller.",
+        "archived": "Property archived."
+      },
+      "historyEmpty": "No moderation activity yet.",
+      "imagesEmpty": "No images uploaded."
+    },
+    "inquiries": {
+      "title": "Buyer Inquiries",
+      "subtitle": "Every inquiry submitted by a buyer on a published property.",
+      "loadError": "Failed to load inquiries.",
+      "searchPlaceholder": "Search by buyer, phone, or property…",
+      "empty": "No inquiries match this filter.",
+      "open": "Open",
+      "tabs": {
+        "new": "New",
+        "contacted": "Contacted",
+        "followUp": "Follow-up",
+        "closed": "Closed",
+        "invalid": "Invalid",
+        "all": "All"
+      },
+      "columns": {
+        "buyer": "Buyer",
+        "property": "Property",
+        "status": "Status",
+        "received": "Received",
+        "action": "Action"
+      }
+    },
+    "inquiryDetail": {
+      "backToList": "Back to inquiries",
+      "loading": "Loading inquiry…",
+      "notFound": "Inquiry not found.",
+      "receivedAt": "Received",
+      "noMessage": "No message provided.",
+      "notesEmpty": "No internal notes yet.",
+      "genericError": "Something went wrong. Please try again.",
+      "sections": {
+        "message": "Buyer Message",
+        "property": "Property",
+        "seller": "Seller",
+        "notes": "Internal Notes",
+        "status": "Update Status",
+        "summary": "Summary"
+      },
+      "fields": {
+        "preferredTime": "Preferred contact time",
+        "property": "Property",
+        "slug": "Public URL",
+        "sellerName": "Name",
+        "sellerPhone": "Phone",
+        "sellerEmail": "Email",
+        "status": "Status",
+        "followUpDate": "Follow-up date",
+        "contactCount": "Contact attempts"
+      },
+      "statuses": {
+        "NEW": "New",
+        "CONTACTED": "Contacted",
+        "FOLLOW_UP": "Follow-up",
+        "CLOSED": "Closed",
+        "INVALID": "Invalid"
+      },
+      "forms": {
+        "addNote": "Add internal note",
+        "addNotePlaceholder": "Notes visible only to your team…",
+        "statusNote": "Note (optional)",
+        "statusNotePlaceholder": "Add a note describing the contact outcome…"
+      },
+      "actions": {
+        "addNote": "Add note",
+        "updateStatus": "Save status",
+        "saving": "Saving…"
+      },
+      "flash": {
+        "statusUpdated": "Inquiry status updated.",
+        "noteAdded": "Internal note added."
+      }
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "Manage every account on the platform.",
+      "loadError": "Failed to load users.",
+      "searchPlaceholder": "Search by name, phone, email…",
+      "empty": "No users match this filter.",
+      "open": "Open",
+      "tabs": {
+        "all": "All",
+        "sellers": "Sellers",
+        "admins": "Admins",
+        "suspended": "Suspended"
+      },
+      "columns": {
+        "user": "User",
+        "role": "Role",
+        "status": "Status",
+        "properties": "Properties",
+        "joined": "Joined",
+        "action": "Action"
+      }
+    },
+    "userDetail": {
+      "backToList": "Back to users",
+      "loading": "Loading user…",
+      "notFound": "User not found.",
+      "sections": {
+        "profile": "Profile",
+        "properties": "Recent Properties",
+        "inquiries": "Recent Inquiries",
+        "actions": "Actions"
+      },
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "role": "Role",
+        "status": "Status",
+        "verified": "Verified",
+        "joined": "Joined",
+        "lastLogin": "Last Login"
+      },
+      "actions": {
+        "suspend": "Suspend Account",
+        "activate": "Activate Account",
+        "cancel": "Cancel",
+        "submitting": "Submitting…"
+      },
+      "forms": {
+        "suspendReason": "Reason (required, for audit log)"
+      },
+      "flash": {
+        "suspended": "User suspended.",
+        "activated": "User activated."
+      },
+      "propertiesEmpty": "No properties yet.",
+      "inquiriesEmpty": "No inquiries yet."
+    },
+    "audit": {
+      "title": "Audit Logs",
+      "subtitle": "Every administrative action — immutable and timestamped.",
+      "loadError": "Failed to load audit logs.",
+      "empty": "No audit entries yet.",
+      "filters": {
+        "entityType": "Entity Type",
+        "action": "Action",
+        "all": "All"
+      },
+      "columns": {
+        "actor": "Actor",
+        "action": "Action",
+        "entity": "Entity",
+        "changes": "Changes",
+        "time": "Time"
+      },
+      "view": "View"
+    }
+  }
+}

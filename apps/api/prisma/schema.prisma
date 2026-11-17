@@ -1,0 +1,650 @@
+// 📍 /apps/api/prisma/schema.prisma
+//
+// Property Marketplace — Full Database Schema
+// ─────────────────────────────────────────────
+// Design decisions:
+//   • Table names: snake_case via @@map (Postgres convention)
+//   • Column names: camelCase (Prisma default, less verbose)
+//   • IDs: cuid() — URL-safe, sortable, no enumeration leaks
+//   • Money: Decimal(15, 2) — NEVER float
+//   • Soft delete: deletedAt timestamp on user-facing entities
+//   • Timestamps: createdAt + updatedAt on everything
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  ENUMS
+// ═══════════════════════════════════════════════════════════
+
+enum UserRole {
+  USER
+  MODERATOR
+  SUPER_ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  PENDING_VERIFICATION
+}
+
+enum PropertyPurpose {
+  SALE
+  RENT
+  LEASE
+}
+
+/// Publication workflow: DRAFT → PENDING_REVIEW → UNDER_REVIEW
+///                   → APPROVED → PUBLISHED
+///                   ↘ CHANGES_REQUESTED / REJECTED / ARCHIVED / SOLD / RENTED
+enum PropertyStatus {
+  DRAFT
+  PENDING_REVIEW
+  UNDER_REVIEW
+  CHANGES_REQUESTED
+  APPROVED
+  PUBLISHED
+  REJECTED
+  ARCHIVED
+  SOLD
+  RENTED
+}
+
+enum PriceUnit {
+  TOTAL
+  PER_KATHA
+  PER_SQFT
+  PER_MONTH
+}
+
+enum AreaUnit {
+  KATHA
+  BIGHA
+  DECIMAL
+  ACRE
+  SQFT
+  SQM
+}
+
+enum PropertyCondition {
+  NEW
+  EXCELLENT
+  GOOD
+  FAIR
+  NEEDS_RENOVATION
+}
+
+enum OwnershipType {
+  FREEHOLD
+  LEASEHOLD
+  GOVERNMENT
+  UNKNOWN
+}
+
+enum LocationType {
+  DIVISION
+  DISTRICT
+  UPAZILA
+}
+
+enum ModerationAction {
+  SUBMITTED
+  APPROVED
+  REJECTED
+  CHANGES_REQUESTED
+  PUBLISHED
+  ARCHIVED
+  EDITED
+}
+
+enum ChangeRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  FOLLOW_UP
+  CLOSED
+  INVALID
+}
+
+enum NotificationType {
+  PROPERTY_SUBMITTED
+  PROPERTY_UNDER_REVIEW
+  PROPERTY_APPROVED
+  PROPERTY_REJECTED
+  PROPERTY_CHANGES_REQUESTED
+  PROPERTY_PUBLISHED
+  PROPERTY_EDITED_BY_ADMIN
+  NEW_INQUIRY_RECEIVED
+  NEW_PROPERTY_SUBMITTED
+  NEW_USER_REGISTERED
+  ACCOUNT_SUSPENDED
+}
+
+enum NotificationChannel {
+  IN_APP
+  EMAIL
+  SMS
+}
+
+enum ReportStatus {
+  PENDING
+  REVIEWED
+  RESOLVED
+  DISMISSED
+}
+
+enum DocumentType {
+  NATIONAL_ID
+  TAX_RECEIPT
+  DEED
+  MUTATION
+  OTHER
+}
+
+// ═══════════════════════════════════════════════════════════
+//  USER & SESSION
+// ═══════════════════════════════════════════════════════════
+
+model User {
+  id           String  @id @default(cuid())
+  name         String
+  email        String? @unique
+  phone        String? @unique
+  passwordHash String?
+
+  role          UserRole   @default(USER)
+  status        UserStatus @default(PENDING_VERIFICATION)
+  emailVerified Boolean    @default(false)
+  phoneVerified Boolean    @default(false)
+
+  avatarUrl   String?
+  bio         String?
+  city        String?
+  lastLoginAt DateTime?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  properties             Property[]
+  sessions               Session[]
+  notifications          Notification[]
+  inquiriesSubmitted     Inquiry[]               @relation("BuyerInquiries")
+  inquiryNotes           InquiryNote[]
+  moderationLogs         PropertyModerationLog[]
+  changeRequestsAsSeller PropertyChangeRequest[] @relation("ChangeRequestSeller")
+  changeRequestsReviewed PropertyChangeRequest[] @relation("ChangeRequestReviewer")
+  auditLogs              AuditLog[]
+  favorites              Favorite[]
+  reports                Report[]
+
+  @@index([role])
+  @@index([status])
+  @@index([deletedAt])
+  @@map("users")
+}
+
+/// Refresh token rotation. One row per active session.
+/// On refresh: delete old row, create new one (rotation).
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// SHA-256 hash of the actual refresh token — never store the raw token
+  tokenHash String   @unique
+  userAgent String?
+  ipAddress String?
+
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  LOCATION (Division → District → Upazila)
+// ═══════════════════════════════════════════════════════════
+
+model Location {
+  id       String       @id @default(cuid())
+  slug     String       @unique
+  nameEn   String
+  nameBn   String
+  type     LocationType
+  parentId String?
+  parent   Location?    @relation("LocationHierarchy", fields: [parentId], references: [id])
+  children Location[]   @relation("LocationHierarchy")
+
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  propertiesAsDivision Property[] @relation("PropertyDivision")
+  propertiesAsDistrict Property[] @relation("PropertyDistrict")
+  propertiesAsUpazila  Property[] @relation("PropertyUpazila")
+
+  @@index([type, isActive])
+  @@index([parentId])
+  @@map("locations")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PROPERTY CATEGORY (self-referencing tree)
+// ═══════════════════════════════════════════════════════════
+
+model PropertyCategory {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  nameEn   String
+  nameBn   String
+  iconKey  String? // icon identifier used by the frontend
+
+  parentId String?
+  parent   PropertyCategory?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children PropertyCategory[] @relation("CategoryHierarchy")
+
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  properties Property[]
+
+  @@index([parentId, isActive])
+  @@map("property_categories")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PROPERTY
+// ═══════════════════════════════════════════════════════════
+
+model Property {
+  id   String @id @default(cuid())
+  slug String @unique
+
+  sellerId String
+  seller   User   @relation(fields: [sellerId], references: [id], onDelete: Restrict)
+
+  categoryId String
+  category   PropertyCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  purpose PropertyPurpose
+  status  PropertyStatus  @default(DRAFT)
+
+  // ─── Content (primary locale) ────────────────────────────
+  // Fallback if translation missing for a locale
+  title       String
+  description String @db.Text
+
+  // ─── Pricing ─────────────────────────────────────────────
+  price        Decimal    @db.Decimal(15, 2)
+  priceUnit    PriceUnit  @default(TOTAL)
+  isNegotiable Boolean    @default(false)
+
+  // ─── Size ────────────────────────────────────────────────
+  landSize        Decimal? @db.Decimal(10, 4)
+  landSizeUnit    AreaUnit?
+  buildingSizeSqft Decimal? @db.Decimal(10, 2)
+
+  // ─── Features (nullable — depends on category) ───────────
+  bedrooms      Int?
+  bathrooms     Int?
+  floors        Int?
+  condition     PropertyCondition?
+  ownershipType OwnershipType?
+
+  // ─── Location ────────────────────────────────────────────
+  divisionId String
+  division   Location @relation("PropertyDivision", fields: [divisionId], references: [id], onDelete: Restrict)
+  districtId String
+  district   Location @relation("PropertyDistrict", fields: [districtId], references: [id], onDelete: Restrict)
+  upazilaId  String?
+  upazila    Location? @relation("PropertyUpazila", fields: [upazilaId], references: [id], onDelete: SetNull)
+
+  areaLocality String
+  fullAddress  String
+
+  // ─── Seller's private notes ──────────────────────────────
+  sellerNotes String? @db.Text
+
+  // ─── Admin's private notes ───────────────────────────────
+  internalNotes String? @db.Text
+
+  // ─── Moderation ──────────────────────────────────────────
+  rejectionReason  String? @db.Text
+  changeRequestNote String? @db.Text
+
+  // ─── Publication ─────────────────────────────────────────
+  isFeatured  Boolean   @default(false)
+  viewCount   Int       @default(0)
+  submittedAt DateTime?
+  publishedAt DateTime?
+
+  // ─── Timestamps ──────────────────────────────────────────
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  // ─── Relations ───────────────────────────────────────────
+  images         PropertyImage[]
+  translations   PropertyTranslation[]
+  moderationLogs PropertyModerationLog[]
+  changeRequests PropertyChangeRequest[]
+  inquiries      Inquiry[]
+  favorites      Favorite[]
+  reports        Report[]
+  documents      PropertyDocument[]
+
+  // ─── Indexes (chosen for the queries we run most) ────────
+  @@index([sellerId, status])
+  @@index([status, purpose])
+  @@index([categoryId, status])
+  @@index([divisionId])
+  @@index([districtId])
+  @@index([publishedAt(sort: Desc)])
+  @@index([isFeatured, status])
+  @@index([deletedAt])
+  @@map("properties")
+}
+
+/// Per-locale content. Fallback to Property.title/description
+/// if a translation is missing.
+model PropertyTranslation {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  locale      String // "en" | "bn"
+  title       String
+  description String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([propertyId, locale])
+  @@map("property_translations")
+}
+
+model PropertyImage {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  /// S3 object key (e.g. "properties/abc123/xyz.webp")
+  storageKey   String
+  /// Public URL (CDN-optimized). Recomputed from settings on read.
+  url          String
+  thumbnailUrl String
+  /// Original filename (for admin troubleshooting)
+  originalName String?
+  mimeType     String
+  sizeBytes    Int
+
+  alt       String?
+  isCover   Boolean @default(false)
+  sortOrder Int     @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([propertyId, sortOrder])
+  @@map("property_images")
+}
+
+/// Documents submitted by sellers when admin requests verification.
+model PropertyDocument {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  type     DocumentType
+  /// S3 key — private (admin-only download)
+  storageKey String
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([propertyId])
+  @@map("property_documents")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  MODERATION
+// ═══════════════════════════════════════════════════════════
+
+/// Immutable log of every state change on a property.
+model PropertyModerationLog {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  actorId String
+  actor   User   @relation(fields: [actorId], references: [id], onDelete: Restrict)
+
+  action  ModerationAction
+  note    String? @db.Text
+  /// Snapshot of changes for EDITED actions
+  metadata Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([propertyId, createdAt])
+  @@index([actorId, createdAt])
+  @@map("property_moderation_logs")
+}
+
+/// Seller-initiated changes to an already-approved property.
+/// Admin must approve the diff before it takes effect.
+model PropertyChangeRequest {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  sellerId String
+  seller   User   @relation("ChangeRequestSeller", fields: [sellerId], references: [id], onDelete: Restrict)
+
+  /// Requested new values (partial property object)
+  proposedChanges Json
+  sellerNote      String? @db.Text
+
+  status ChangeRequestStatus @default(PENDING)
+
+  reviewerId String?
+  reviewer   User?   @relation("ChangeRequestReviewer", fields: [reviewerId], references: [id])
+  reviewNote String? @db.Text
+  reviewedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([propertyId, status])
+  @@index([sellerId, status])
+  @@index([status, createdAt])
+  @@map("property_change_requests")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  INQUIRY (Buyer → Admin → Seller)
+// ═══════════════════════════════════════════════════════════
+
+model Inquiry {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  /// Nullable so anonymous buyers can submit (admin still gets info)
+  buyerId String?
+  buyer   User?   @relation("BuyerInquiries", fields: [buyerId], references: [id], onDelete: SetNull)
+
+  buyerName    String
+  buyerPhone   String
+  buyerEmail   String?
+  message      String? @db.Text
+  preferredContactTime String?
+
+  status       InquiryStatus @default(NEW)
+  followUpDate DateTime?
+  contactCount Int           @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  notes InquiryNote[]
+
+  @@index([propertyId, createdAt])
+  @@index([status, createdAt])
+  @@index([buyerPhone])
+  @@map("inquiries")
+}
+
+model InquiryNote {
+  id        String  @id @default(cuid())
+  inquiryId String
+  inquiry   Inquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Restrict)
+
+  body String @db.Text
+
+  createdAt DateTime @default(now())
+
+  @@index([inquiryId, createdAt])
+  @@map("inquiry_notes")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  NOTIFICATIONS
+// ═══════════════════════════════════════════════════════════
+
+model Notification {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type    NotificationType
+  channel NotificationChannel @default(IN_APP)
+  title   String
+  body    String  @db.Text
+  /// Deep-link (e.g. "/en/dashboard/properties/abc")
+  link    String?
+
+  isRead Boolean   @default(false)
+  readAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId, isRead, createdAt(sort: Desc)])
+  @@index([userId, channel])
+  @@map("notifications")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  AUDIT LOG (admin actions)
+// ═══════════════════════════════════════════════════════════
+
+model AuditLog {
+  id      String @id @default(cuid())
+  actorId String
+  actor   User   @relation(fields: [actorId], references: [id], onDelete: Restrict)
+
+  /// e.g. "Property", "User", "WebsiteSetting"
+  entityType String
+  entityId   String
+
+  action  String // "CREATE" | "UPDATE" | "DELETE" | "APPROVE" | ...
+  before  Json?
+  after   Json?
+  /// Diff summary (which fields changed) — helps admin quick-scan
+  changedFields String[]
+
+  ipAddress String?
+  userAgent String?
+
+  createdAt DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([actorId, createdAt])
+  @@map("audit_logs")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  FAVORITES & REPORTS (buyer-side engagement)
+// ═══════════════════════════════════════════════════════════
+
+model Favorite {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, propertyId])
+  @@index([userId, createdAt])
+  @@map("favorites")
+}
+
+model Report {
+  id     String @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  reporterId String?
+  reporter   User?   @relation(fields: [reporterId], references: [id], onDelete: SetNull)
+
+  reason  String  @db.Text
+  contact String?
+
+  status       ReportStatus @default(PENDING)
+  adminNote    String?      @db.Text
+  resolvedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([propertyId])
+  @@map("reports")
+}
+
+// ═══════════════════════════════════════════════════════════
+//  WEBSITE SETTINGS (singleton-ish, key/value with JSON)
+// ═══════════════════════════════════════════════════════════
+
+/// Key-value store for runtime-editable config.
+/// Use ONE row per logical section with JSON payload, or
+/// one row per scalar key (we choose one-row-per-key for audit clarity).
+model WebsiteSetting {
+  id    String @id @default(cuid())
+  /// e.g. "site_name", "contact_phone", "max_images_per_property"
+  key   String @unique
+  value Json
+
+  updatedById String?
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+
+  @@map("website_settings")
+}

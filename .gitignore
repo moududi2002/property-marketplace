@@ -1,0 +1,54 @@
+# 📍 /.gitignore
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Builds
+.next/
+dist/
+build/
+out/
+.turbo/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Prisma
+apps/api/prisma/migrations/*_draft/
+
+# Uploads (local dev)
+uploads/
+apps/api/uploads/
+
+# Misc
+*.pem
+.cache/
+
+# Docker env files
+infrastructure/docker/.env

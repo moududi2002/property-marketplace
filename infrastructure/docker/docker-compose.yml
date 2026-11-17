@@ -1,0 +1,122 @@
+# 📍 /infrastructure/docker/docker-compose.yml
+
+name: property-marketplace
+
+services:
+  # ─────────────────────────────────────────────────────────
+  # PostgreSQL 16 — Main relational database
+  # ─────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: pm-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      # Enforce UTC and use consistent collation for predictable sorting
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      # Wait until the DB is actually accepting connections
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - pm-network
+
+  # ─────────────────────────────────────────────────────────
+  # Redis 7 — Cache + BullMQ job queue backend
+  # ─────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: pm-redis
+    restart: unless-stopped
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - pm-network
+
+  # ─────────────────────────────────────────────────────────
+  # MinIO — Local S3-compatible object storage
+  # Production-এ এটার জায়গায় AWS S3 / DO Spaces যাবে
+  # ─────────────────────────────────────────────────────────
+  minio:
+    image: minio/minio:latest
+    container_name: pm-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY}
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9001
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # Web console
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - pm-network
+
+  # ─────────────────────────────────────────────────────────
+  # MinIO Init — Creates bucket + sets public read policy
+  # Runs once after MinIO is healthy, then exits
+  # ─────────────────────────────────────────────────────────
+  minio-init:
+    image: minio/mc:latest
+    container_name: pm-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+        mc alias set local http://minio:9000 ${S3_ACCESS_KEY} ${S3_SECRET_KEY} &&
+        mc mb --ignore-existing local/${S3_BUCKET} &&
+        mc anonymous set download local/${S3_BUCKET} &&
+        echo '✅ Bucket ${S3_BUCKET} ready' &&
+        exit 0
+      "
+    networks:
+      - pm-network
+
+# ─────────────────────────────────────────────────────────
+# Named Volumes — Data persists between `docker compose down`
+# `docker compose down -v` দিলে সব মুছে যাবে
+# ─────────────────────────────────────────────────────────
+volumes:
+  postgres_data:
+    name: pm-postgres-data
+  redis_data:
+    name: pm-redis-data
+  minio_data:
+    name: pm-minio-data
+
+# ─────────────────────────────────────────────────────────
+# Shared network
+# ─────────────────────────────────────────────────────────
+networks:
+  pm-network:
+    name: pm-network
+    driver: bridge

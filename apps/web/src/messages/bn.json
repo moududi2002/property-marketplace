@@ -1,0 +1,695 @@
+
+{
+  "Header": {
+    "home": "হোম",
+    "buy": "প্রপার্টি কিনুন",
+    "rent": "প্রপার্টি ভাড়া নিন",
+    "categories": "ক্যাটাগরি",
+    "about": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "login": "লগইন",
+    "postProperty": "বিজ্ঞাপন দিন"
+  },
+  "Footer": {
+    "aboutTitle": "প্রপার্টি মার্কেটপ্লেস সম্পর্কে",
+    "aboutText": "বাংলাদেশজুড়ে প্রপার্টি কেনা, বিক্রি ও ভাড়ার বিশ্বস্ত প্ল্যাটফর্ম। প্রতিটি বিজ্ঞাপন প্রকাশের আগে আমাদের টিম যাচাই করে।",
+    "quickLinks": "দ্রুত লিংক",
+    "locationsTitle": "লোকেশন",
+    "contactTitle": "যোগাযোগ",
+    "linkHome": "হোম",
+    "linkBuy": "প্রপার্টি কিনুন",
+    "linkRent": "প্রপার্টি ভাড়া নিন",
+    "linkPost": "বিজ্ঞাপন দিন",
+    "linkAbout": "আমাদের সম্পর্কে",
+    "linkContact": "যোগাযোগ",
+    "rights": "সর্বস্বত্ব সংরক্ষিত।"
+  },
+
+  "Home": {
+    "meta": {
+      "title": "প্রপার্টি মার্কেটপ্লেস — বাংলাদেশে কেনা, বেচা ও ভাড়া",
+      "description": "বাংলাদেশজুড়ে যাচাইকৃত প্রপার্টি বিজ্ঞাপন। প্রকাশের আগে প্রতিটি বিজ্ঞাপন আমাদের টিম যাচাই করে।"
+    },
+    "heroTitle": "খুঁজে নিন নিজের মতো একটি ঠিকানা।",
+    "heroSubtitle": "সারাদেশে যাচাইকৃত বিজ্ঞাপন ঘুরে দেখুন — বিক্রি ও ভাড়ার জন্য।",
+    "searchBuy": "কিনুন",
+    "searchRent": "ভাড়া",
+    "searchType": "প্রপার্টির ধরন",
+    "searchTypePlaceholder": "যেকোনো ধরন",
+    "searchLocation": "লোকেশন",
+    "searchLocationPlaceholder": "যেকোনো জেলা",
+    "searchButton": "সার্চ করুন",
+    "comingSoon": "সম্পূর্ণ সার্চ সুবিধা শীঘ্রই আসছে।",
+    "featured": {
+      "title": "ফিচার্ড প্রপার্টি",
+      "subtitle": "আমাদের টিম বাছাই করা বিজ্ঞাপন।",
+      "viewAll": "সব ফিচার্ড দেখুন"
+    },
+    "recent": {
+      "title": "সাম্প্রতিক প্রকাশিত",
+      "subtitle": "প্ল্যাটফর্মে সবচেয়ে নতুন বিজ্ঞাপন।",
+      "viewAll": "সব নতুন বিজ্ঞাপন দেখুন"
+    },
+    "categories": {
+      "title": "ক্যাটাগরি অনুযায়ী দেখুন",
+      "subtitle": "আপনি যে ধরনের প্রপার্টি খুঁজছেন সেটি বেছে নিন।",
+      "subtypes": "সাব-টাইপ"
+    },
+    "divisions": {
+      "title": "বিভাগ অনুযায়ী দেখুন",
+      "subtitle": "বাংলাদেশের সব অঞ্চলে বিজ্ঞাপন ঘুরে দেখুন।"
+    },
+    "why": {
+      "title": "কেন আমাদের বেছে নেবেন",
+      "reviewedTitle": "যাচাইকৃত বিজ্ঞাপন",
+      "reviewedBody": "প্রকাশের আগে প্রতিটি প্রপার্টি আমাদের টিম যাচাই করে।",
+      "searchTitle": "সহজ সার্চ",
+      "searchBody": "উদ্দেশ্য, ক্যাটাগরি, মূল্য, বেডরুম ও লোকেশন দিয়ে ফিল্টার করুন।",
+      "supportTitle": "নির্ভরযোগ্য সাপোর্ট",
+      "supportBody": "আমাদের টিমের সরাসরি সহায়তা — কোনো জটিলতা ছাড়াই।",
+      "contactTitle": "সরাসরি যোগাযোগ",
+      "contactBody": "আমরা ক্রেতা-বিক্রেতাকে সংযুক্ত করি এবং প্রতিটি ইনকোয়ারি সামলাই।"
+    }
+  },
+
+  "Auth": {
+    "loginTitle": "আপনার অ্যাকাউন্টে লগইন করুন",
+    "loginSubtitle": "চালিয়ে যেতে আপনার মোবাইল নম্বর বা ইমেইল দিন।",
+    "registerTitle": "নতুন অ্যাকাউন্ট তৈরি করুন",
+    "registerSubtitle": "মোবাইল নম্বর দিয়ে রেজিস্টার করুন। ইমেইল ঐচ্ছিক।",
+    "identifierLabel": "মোবাইল বা ইমেইল",
+    "identifierPlaceholder": "01XXXXXXXXX বা you@example.com",
+    "passwordLabel": "পাসওয়ার্ড",
+    "confirmPasswordLabel": "পাসওয়ার্ড নিশ্চিত করুন",
+    "nameLabel": "পুরো নাম",
+    "phoneLabel": "মোবাইল নম্বর",
+    "emailLabel": "ইমেইল",
+    "optional": "ঐচ্ছিক",
+    "loginButton": "লগইন",
+    "registerButton": "অ্যাকাউন্ট তৈরি করুন",
+    "loggingIn": "লগইন হচ্ছে…",
+    "registering": "অ্যাকাউন্ট তৈরি হচ্ছে…",
+    "noAccount": "অ্যাকাউন্ট নেই?",
+    "haveAccount": "ইতিমধ্যে অ্যাকাউন্ট আছে?",
+    "registerLink": "রেজিস্টার করুন",
+    "loginLink": "লগইন",
+    "logout": "লগআউট",
+    "myAccount": "আমার অ্যাকাউন্ট",
+    "myProperties": "আমার প্রপার্টি",
+    "genericError": "সমস্যা হয়েছে। আবার চেষ্টা করুন।"
+  },
+
+  "Account": {
+    "title": "আমার অ্যাকাউন্ট",
+    "subtitle": "আপনার নিবন্ধিত তথ্য।",
+    "loading": "লোড হচ্ছে…",
+    "verified": "যাচাইকৃত",
+    "unverified": "অযাচাইকৃত",
+    "fields": {
+      "name": "নাম",
+      "phone": "মোবাইল",
+      "email": "ইমেইল",
+      "role": "রোল"
+    }
+  },
+
+  "Sell": {
+    "title": "আপনার প্রপার্টির বিজ্ঞাপন দিন",
+    "subtitle": "নিচের তথ্যগুলো পূরণ করুন। ওয়েবসাইটে প্রকাশের আগে আমাদের টিম যাচাই করবে।",
+    "loading": "ফর্ম লোড হচ্ছে…",
+    "step": {
+      "1": "মৌলিক তথ্য",
+      "2": "লোকেশন",
+      "3": "বিস্তারিত ও মূল্য",
+      "4": "ছবি"
+    },
+    "images": {
+      "title": "প্রপার্টির ছবি",
+      "subtitle": "প্রপার্টির পরিষ্কার ছবি আপলোড করুন। আপনি না বদলালে প্রথম ছবিটিই Cover হিসেবে ব্যবহৃত হবে।",
+      "hint": "সর্বোচ্চ ২০টি ছবি আপলোড করা যাবে। JPG, PNG, WebP · প্রতি ছবি সর্বোচ্চ 10MB।"
+    },
+    "purpose": {
+      "SALE": "বিক্রয়ের জন্য",
+      "RENT": "ভাড়ার জন্য",
+      "LEASE": "লিজের জন্য"
+    },
+    "fields": {
+      "purpose": "উদ্দেশ্য",
+      "category": "প্রপার্টির ধরন",
+      "title": "বিজ্ঞাপনের শিরোনাম",
+      "description": "বর্ণনা",
+      "division": "বিভাগ",
+      "district": "জেলা",
+      "areaLocality": "এলাকা / লোকালিটি",
+      "fullAddress": "সম্পূর্ণ ঠিকানা",
+      "price": "চাওয়া মূল্য",
+      "priceUnit": "একক",
+      "negotiable": "মূল্য নিয়ে দর-কষাকষি সম্ভব",
+      "landSize": "জমির পরিমাণ",
+      "buildingSize": "বিল্ডিং আকার",
+      "bedrooms": "বেডরুম",
+      "bathrooms": "বাথরুম",
+      "floors": "ফ্লোর",
+      "condition": "অবস্থা",
+      "ownership": "মালিকানার ধরন",
+      "sellerNotes": "ব্যক্তিগত নোট"
+    },
+    "placeholders": {
+      "category": "প্রপার্টির ধরন নির্বাচন করুন",
+      "title": "যেমন: ধানমন্ডিতে ৩ বেডরুম পরিবার ফ্ল্যাট",
+      "description": "প্রপার্টি সম্পর্কে লিখুন — লেআউট, আশপাশ, কাছাকাছি সুবিধা…",
+      "division": "বিভাগ নির্বাচন করুন",
+      "district": "জেলা নির্বাচন করুন",
+      "areaLocality": "যেমন: রোড ৮, ধানমন্ডি",
+      "fullAddress": "বাড়ি / ফ্ল্যাট নম্বর, রোড, ব্লক",
+      "sellerNotes": "অতিরিক্ত কোনো নোট (শুধু আমাদের টিম দেখবে)",
+      "optional": "ঐচ্ছিক"
+    },
+    "priceUnit": {
+      "TOTAL": "সর্বমোট",
+      "PER_KATHA": "প্রতি কাঠা",
+      "PER_SQFT": "প্রতি বর্গফুট",
+      "PER_MONTH": "প্রতি মাস"
+    },
+    "areaUnit": {
+      "KATHA": "কাঠা",
+      "BIGHA": "বিঘা",
+      "DECIMAL": "শতক",
+      "ACRE": "একর",
+      "SQFT": "বর্গফুট",
+      "SQM": "বর্গমিটার"
+    },
+    "condition": {
+      "NEW": "নতুন",
+      "EXCELLENT": "চমৎকার",
+      "GOOD": "ভালো",
+      "FAIR": "মোটামুটি",
+      "NEEDS_RENOVATION": "সংস্কার প্রয়োজন"
+    },
+    "ownership": {
+      "FREEHOLD": "ফ্রিহোল্ড",
+      "LEASEHOLD": "লিজহোল্ড",
+      "GOVERNMENT": "সরকারি",
+      "UNKNOWN": "অজানা"
+    },
+    "private": "প্রকাশ্যে দেখা যাবে না",
+    "actions": {
+      "back": "পূর্ববর্তী",
+      "saveDraft": "খসড়া হিসেবে সংরক্ষণ",
+      "saveAndContinue": "সংরক্ষণ করে এগিয়ে যান",
+      "saving": "সংরক্ষণ হচ্ছে…",
+      "submitForReview": "পর্যালোচনার জন্য পাঠান",
+      "submitting": "পাঠানো হচ্ছে…"
+    },
+    "err": {
+      "categoryRequired": "অনুগ্রহ করে প্রপার্টির ধরন নির্বাচন করুন।",
+      "titleTooShort": "শিরোনাম কমপক্ষে ৫ অক্ষরের হতে হবে।",
+      "descTooShort": "বর্ণনা কমপক্ষে ২০ অক্ষরের হতে হবে।",
+      "divisionRequired": "অনুগ্রহ করে বিভাগ নির্বাচন করুন।",
+      "districtRequired": "অনুগ্রহ করে জেলা নির্বাচন করুন।",
+      "areaRequired": "এলাকা / লোকালিটি লিখুন।",
+      "addressRequired": "সম্পূর্ণ ঠিকানা লিখুন।",
+      "priceRequired": "চাওয়া মূল্য লিখুন।",
+      "generic": "সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      "completeEarlierSteps": "জমা দেওয়ার আগে পূর্ববর্তী ধাপগুলো সম্পন্ন করুন।"
+    }
+  },
+
+  "MyProperties": {
+    "title": "আমার প্রপার্টি",
+    "subtitle": "আপনার বিজ্ঞাপনগুলো পরিচালনা করুন এবং পর্যালোচনার অবস্থা দেখুন।",
+    "newProperty": "নতুন যোগ করুন",
+    "loading": "লোড হচ্ছে…",
+    "empty": "এখনো কোনো প্রপার্টি পোস্ট করেননি।",
+    "createFirst": "আপনার প্রথম প্রপার্টি পোস্ট করুন",
+    "untitled": "(শিরোনামহীন খসড়া)",
+    "loadError": "প্রপার্টি লোড করা যায়নি।",
+    "columns": {
+      "property": "প্রপার্টি",
+      "category": "ক্যাটাগরি",
+      "status": "অবস্থা",
+      "updated": "তৈরির তারিখ",
+      "actions": "কার্যক্রম"
+    },
+    "view": "দেখুন"
+  },
+
+  "Properties": {
+    "titleAll": "বিক্রয় ও ভাড়ার প্রপার্টি",
+    "titleBuy": "বিক্রয়ের প্রপার্টি",
+    "titleRent": "ভাড়ার প্রপার্টি",
+    "subtitle": "সারাদেশে যাচাইকৃত সব বিজ্ঞাপন দেখুন।",
+    "loading": "প্রপার্টি লোড হচ্ছে…",
+    "loadError": "প্রপার্টি লোড করা যায়নি।",
+    "noResults": "এই সার্চে কোনো প্রপার্টি পাওয়া যায়নি। ফিল্টার আরও প্রশস্ত করুন।",
+    "resultCount": "{count}টি প্রপার্টি পাওয়া গেছে",
+    "filters": {
+      "purpose": "উদ্দেশ্য",
+      "any": "যেকোনো",
+      "buy": "কিনুন",
+      "rent": "ভাড়া",
+      "keyword": "কীওয়ার্ড",
+      "keywordPlaceholder": "শিরোনাম বা এলাকা…",
+      "category": "প্রপার্টির ধরন",
+      "anyCategory": "যেকোনো ক্যাটাগরি",
+      "priceRange": "মূল্যসীমা",
+      "min": "সর্বনিম্ন",
+      "max": "সর্বোচ্চ",
+      "bedrooms": "বেডরুম",
+      "sort": "সাজান",
+      "sortNewest": "নতুন আগে",
+      "sortOldest": "পুরনো আগে",
+      "sortPriceAsc": "মূল্য: কম থেকে বেশি",
+      "sortPriceDesc": "মূল্য: বেশি থেকে কম",
+      "apply": "ফিল্টার প্রয়োগ"
+    },
+    "pagination": {
+      "previous": "আগের",
+      "next": "পরের",
+      "pageOf": "পৃষ্ঠা {page} / {total}"
+    }
+  },
+
+  "PropertyCard": {
+    "noImage": "ছবি নেই",
+    "featured": "ফিচার্ড",
+    "beds": "বেড",
+    "baths": "বাথ",
+    "viewDetails": "বিস্তারিত দেখুন"
+  },
+
+  "PropertyDetail": {
+    "loading": "লোড হচ্ছে…",
+    "loadError": "প্রপার্টি লোড করা যায়নি।",
+    "notFound": "প্রপার্টি পাওয়া যায়নি।",
+    "backToList": "আমার প্রপার্টি-তে ফিরে যান",
+    "backToSearch": "সার্চে ফিরুন",
+    "continueEditing": "এডিটিং চালিয়ে যান",
+    "untitled": "(শিরোনামহীন খসড়া)",
+    "rejectionReason": "বাতিলের কারণ",
+    "changeRequestNote": "পরিবর্তনের অনুরোধ",
+    "sold": "বিক্রি হয়েছে",
+    "rented": "ভাড়া হয়েছে",
+    "yes": "হ্যাঁ",
+    "no": "না",
+    "images": {
+      "heading": "ছবি ({count})",
+      "cover": "কভার"
+    },
+    "breadcrumb": {
+      "home": "হোম",
+      "properties": "প্রপার্টি"
+    },
+    "sections": {
+      "description": "বর্ণনা",
+      "features": "বৈশিষ্ট্য",
+      "location": "লোকেশন"
+    },
+    "fields": {
+      "purpose": "উদ্দেশ্য",
+      "category": "প্রপার্টির ধরন",
+      "price": "চাওয়া মূল্য",
+      "submittedAt": "জমা দেওয়ার সময়",
+      "createdAt": "তৈরির সময়",
+      "landSize": "জমির পরিমাণ",
+      "buildingSize": "বিল্ডিং আকার",
+      "bedrooms": "বেডরুম",
+      "bathrooms": "বাথরুম",
+      "floors": "ফ্লোর",
+      "condition": "অবস্থা",
+      "ownership": "মালিকানা",
+      "negotiable": "দর-কষাকষিযোগ্য",
+      "division": "বিভাগ",
+      "district": "জেলা",
+      "upazila": "উপজেলা",
+      "area": "এলাকা / লোকালিটি",
+      "address": "সম্পূর্ণ ঠিকানা"
+    },
+    "condition": {
+      "NEW": "নতুন",
+      "EXCELLENT": "চমৎকার",
+      "GOOD": "ভালো",
+      "FAIR": "মোটামুটি",
+      "NEEDS_RENOVATION": "সংস্কার প্রয়োজন"
+    },
+    "ownership": {
+      "FREEHOLD": "ফ্রিহোল্ড",
+      "LEASEHOLD": "লিজহোল্ড",
+      "GOVERNMENT": "সরকারি",
+      "UNKNOWN": "অজানা"
+    },
+    "purpose": {
+      "SALE": "বিক্রয়ের জন্য",
+      "RENT": "ভাড়ার জন্য",
+      "LEASE": "লিজের জন্য"
+    },
+    "gallery": {
+      "noImages": "কোনো ছবি নেই।",
+      "openLightbox": "বড় করে দেখুন",
+      "viewImage": "ছবি {n} দেখুন",
+      "close": "বন্ধ",
+      "prev": "আগের ছবি",
+      "next": "পরের ছবি"
+    },
+    "contact": {
+      "heading": "এই প্রপার্টিতে আগ্রহী?",
+      "subtitle": "বিস্তারিত জানতে বা ভিজিট আয়োজনের জন্য আমাদের টিমের সাথে যোগাযোগ করুন।",
+      "hotline": "হটলাইন",
+      "orForm": "অথবা একটি ইনকোয়ারি পাঠান"
+    }
+  },
+
+  "InquiryForm": {
+    "name": "আপনার নাম",
+    "phone": "মোবাইল নম্বর",
+    "email": "ইমেইল",
+    "optional": "ঐচ্ছিক",
+    "preferredContactTime": "যোগাযোগের পছন্দের সময়",
+    "preferredContactTimePlaceholder": "যেমন: সন্ধ্যা ৬–৯টা",
+    "message": "বার্তা",
+    "messagePlaceholder": "আপনি কী জানতে চান লিখুন…",
+    "send": "ইনকোয়ারি পাঠান",
+    "sending": "পাঠানো হচ্ছে…",
+    "successTitle": "ইনকোয়ারি গ্রহণ করা হয়েছে",
+    "successMessage": "আমাদের টিম শীঘ্রই আপনার সাথে যোগাযোগ করবে।",
+    "privacyNote": "আপনার তথ্য শুধু আমাদের টিম দেখবে, সরাসরি বিক্রেতাকে দেওয়া হবে না।",
+    "genericError": "সমস্যা হয়েছে। আবার চেষ্টা করুন।"
+  },
+
+  "Images": {
+    "loading": "ছবি লোড হচ্ছে…",
+    "loadError": "ছবি লোড করা যায়নি।",
+    "dropTitle": "আপলোড করতে ক্লিক করুন বা ছবি টেনে আনুন",
+    "dropSubtitle": "JPG, PNG, বা WebP · প্রতি ছবি সর্বোচ্চ 10MB · সর্বোচ্চ ২০টি",
+    "dropNow": "এখানে ছবি ছেড়ে দিন",
+    "counter": "{current} / {max} ছবি",
+    "uploading": "আপলোড হচ্ছে…",
+    "uploadError": "আপলোড ব্যর্থ হয়েছে। আবার চেষ্টা করুন।",
+    "invalidType": "অবৈধ ফাইল ধরন: {files}",
+    "tooLarge": "ফাইল অনেক বড় (সর্বোচ্চ {mb}MB): {files}",
+    "maxReached": "সর্বোচ্চ {max}টি ছবি অনুমোদিত।",
+    "cover": "কভার",
+    "setCover": "কভার হিসেবে সেট করুন",
+    "delete": "ছবি মুছুন",
+    "moveUp": "বামে সরান",
+    "moveDown": "ডানে সরান",
+    "confirmDelete": "এই ছবিটি মুছবেন?"
+  },
+
+  "Notifications": {
+    "title": "নোটিফিকেশন",
+    "subtitle": "আপনার মনোযোগ প্রয়োজন এমন সবকিছু।",
+    "loading": "নোটিফিকেশন লোড হচ্ছে…",
+    "empty": "এখনো কোনো নোটিফিকেশন নেই।",
+    "new": "নতুন",
+    "markAllRead": "সব পঠিত হিসেবে চিহ্নিত",
+    "viewAll": "সব নোটিফিকেশন দেখুন"
+  },
+
+  "Admin": {
+    "nav": {
+      "heading": "অ্যাডমিন প্যানেল",
+      "dashboard": "ড্যাশবোর্ড",
+      "properties": "প্রপার্টি",
+      "inquiries": "ইনকোয়ারি",
+      "users": "ইউজার",
+      "auditLogs": "অডিট লগ"
+    },
+    "guard": {
+      "loading": "অ্যাক্সেস যাচাই হচ্ছে…"
+    },
+    "common": {
+      "loading": "লোড হচ্ছে…",
+      "search": "সার্চ",
+      "previous": "আগের",
+      "next": "পরের",
+      "pageOf": "পৃষ্ঠা {page} / {total}"
+    },
+    "dashboard": {
+      "title": "ওভারভিউ",
+      "subtitle": "মার্কেটপ্লেসের সামগ্রিক পরিস্থিতি এক নজরে।",
+      "loadError": "ড্যাশবোর্ড লোড করা যায়নি।",
+      "loading": "ড্যাশবোর্ড লোড হচ্ছে…",
+      "stats": {
+        "totalProperties": "মোট প্রপার্টি",
+        "pending": "পর্যালোচনার অপেক্ষায়",
+        "published": "প্রকাশিত",
+        "newUsersThisWeek": "নতুন ইউজার (৭ দিন)",
+        "totalUsers": "মোট ইউজার",
+        "rejected": "বাতিল",
+        "drafts": "খসড়া",
+        "newInquiries": "নতুন ইনকোয়ারি"
+      },
+      "recentPending": "সাম্প্রতিক জমা",
+      "viewAll": "সব দেখুন",
+      "noPending": "পর্যালোচনার জন্য কোনো প্রপার্টি নেই।",
+      "review": "রিভিউ",
+      "columns": {
+        "property": "প্রপার্টি",
+        "seller": "বিক্রেতা",
+        "submitted": "জমা",
+        "action": "কার্যক্রম"
+      }
+    },
+    "properties": {
+      "title": "প্রপার্টি",
+      "subtitle": "প্ল্যাটফর্মের সব বিজ্ঞাপন পর্যালোচনা ও মডারেট করুন।",
+      "loadError": "প্রপার্টি লোড করা যায়নি।",
+      "searchPlaceholder": "শিরোনাম, বিক্রেতা, ফোন…",
+      "empty": "এই ফিল্টারে কোনো প্রপার্টি নেই।",
+      "open": "খুলুন",
+      "tabs": {
+        "pending": "পর্যালোচনাধীন",
+        "approved": "অনুমোদিত",
+        "published": "প্রকাশিত",
+        "rejected": "বাতিল",
+        "changesRequested": "পরিবর্তন চাওয়া",
+        "all": "সব"
+      },
+      "columns": {
+        "property": "প্রপার্টি",
+        "seller": "বিক্রেতা",
+        "price": "মূল্য",
+        "status": "অবস্থা",
+        "submitted": "জমা",
+        "action": "কার্যক্রম"
+      }
+    },
+    "detail": {
+      "backToList": "প্রপার্টি তালিকায় ফিরুন",
+      "loading": "প্রপার্টি লোড হচ্ছে…",
+      "notFound": "প্রপার্টি পাওয়া যায়নি।",
+      "sections": {
+        "summary": "সারসংক্ষেপ",
+        "seller": "বিক্রেতা",
+        "images": "ছবি",
+        "description": "বর্ণনা",
+        "location": "লোকেশন ও বিস্তারিত",
+        "moderation": "মডারেশন হিস্ট্রি",
+        "actions": "কার্যক্রম",
+        "internalNotes": "ইন্টারনাল নোট"
+      },
+      "fields": {
+        "status": "অবস্থা",
+        "purpose": "উদ্দেশ্য",
+        "category": "ক্যাটাগরি",
+        "price": "মূল্য",
+        "negotiable": "দর-কষাকষিযোগ্য",
+        "landSize": "জমির পরিমাণ",
+        "buildingSize": "বিল্ডিং আকার",
+        "bedrooms": "বেডরুম",
+        "bathrooms": "বাথরুম",
+        "floors": "ফ্লোর",
+        "condition": "অবস্থা",
+        "ownership": "মালিকানা",
+        "district": "জেলা",
+        "area": "এলাকা",
+        "address": "সম্পূর্ণ ঠিকানা",
+        "submitted": "জমা",
+        "published": "প্রকাশিত",
+        "sellerName": "নাম",
+        "sellerEmail": "ইমেইল",
+        "sellerPhone": "ফোন",
+        "sellerSince": "সদস্য হয়েছেন",
+        "sellerNotes": "বিক্রেতার নোট",
+        "internalNotes": "ইন্টারনাল নোট (ব্যক্তিগত)"
+      },
+      "actions": {
+        "approve": "অনুমোদন",
+        "approveAndPublish": "অনুমোদন ও প্রকাশ",
+        "reject": "বাতিল",
+        "requestChanges": "পরিবর্তন চান",
+        "publish": "প্রকাশ করুন",
+        "archive": "আর্কাইভ",
+        "cancel": "বাতিল",
+        "submitting": "পাঠানো হচ্ছে…"
+      },
+      "forms": {
+        "approveNote": "অডিট লগের জন্য ঐচ্ছিক নোট",
+        "approvePublishCheckbox": "অনুমোদনের পরপরই প্রকাশ করুন",
+        "rejectReason": "বাতিলের কারণ (বিক্রেতা দেখবে)",
+        "changesNote": "কী কী পরিবর্তন দরকার (বিক্রেতা দেখবে)",
+        "archiveNote": "আর্কাইভের কারণ (ঐচ্ছিক)"
+      },
+      "flash": {
+        "approved": "প্রপার্টি অনুমোদিত হয়েছে।",
+        "published": "প্রপার্টি প্রকাশিত হয়েছে।",
+        "rejected": "প্রপার্টি বাতিল হয়েছে।",
+        "changesRequested": "পরিবর্তনের অনুরোধ বিক্রেতাকে পাঠানো হয়েছে।",
+        "archived": "প্রপার্টি আর্কাইভ হয়েছে।"
+      },
+      "historyEmpty": "এখনো কোনো মডারেশন কার্যক্রম নেই।",
+      "imagesEmpty": "কোনো ছবি আপলোড করা হয়নি।"
+    },
+    "inquiries": {
+      "title": "বায়ার ইনকোয়ারি",
+      "subtitle": "প্রকাশিত প্রপার্টিতে ক্রেতাদের পাঠানো সব ইনকোয়ারি।",
+      "loadError": "ইনকোয়ারি লোড করা যায়নি।",
+      "searchPlaceholder": "ক্রেতা, ফোন, বা প্রপার্টি…",
+      "empty": "এই ফিল্টারে কোনো ইনকোয়ারি নেই।",
+      "open": "খুলুন",
+      "tabs": {
+        "new": "নতুন",
+        "contacted": "যোগাযোগ হয়েছে",
+        "followUp": "ফলো-আপ",
+        "closed": "সম্পন্ন",
+        "invalid": "অবৈধ",
+        "all": "সব"
+      },
+      "columns": {
+        "buyer": "ক্রেতা",
+        "property": "প্রপার্টি",
+        "status": "অবস্থা",
+        "received": "গৃহীত",
+        "action": "কার্যক্রম"
+      }
+    },
+    "inquiryDetail": {
+      "backToList": "ইনকোয়ারি তালিকায় ফিরুন",
+      "loading": "ইনকোয়ারি লোড হচ্ছে…",
+      "notFound": "ইনকোয়ারি পাওয়া যায়নি।",
+      "receivedAt": "গৃহীত",
+      "noMessage": "কোনো বার্তা দেওয়া হয়নি।",
+      "notesEmpty": "এখনো কোনো ইন্টারনাল নোট নেই।",
+      "genericError": "সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      "sections": {
+        "message": "ক্রেতার বার্তা",
+        "property": "প্রপার্টি",
+        "seller": "বিক্রেতা",
+        "notes": "ইন্টারনাল নোট",
+        "status": "অবস্থা আপডেট",
+        "summary": "সারসংক্ষেপ"
+      },
+      "fields": {
+        "preferredTime": "যোগাযোগের পছন্দের সময়",
+        "property": "প্রপার্টি",
+        "slug": "পাবলিক URL",
+        "sellerName": "নাম",
+        "sellerPhone": "ফোন",
+        "sellerEmail": "ইমেইল",
+        "status": "অবস্থা",
+        "followUpDate": "ফলো-আপ তারিখ",
+        "contactCount": "যোগাযোগের সংখ্যা"
+      },
+      "statuses": {
+        "NEW": "নতুন",
+        "CONTACTED": "যোগাযোগ হয়েছে",
+        "FOLLOW_UP": "ফলো-আপ",
+        "CLOSED": "সম্পন্ন",
+        "INVALID": "অবৈধ"
+      },
+      "forms": {
+        "addNote": "ইন্টারনাল নোট যোগ করুন",
+        "addNotePlaceholder": "নোট শুধু আপনার টিম দেখবে…",
+        "statusNote": "নোট (ঐচ্ছিক)",
+        "statusNotePlaceholder": "যোগাযোগের ফলাফল লিখুন…"
+      },
+      "actions": {
+        "addNote": "নোট যোগ",
+        "updateStatus": "অবস্থা সংরক্ষণ",
+        "saving": "সংরক্ষণ হচ্ছে…"
+      },
+      "flash": {
+        "statusUpdated": "ইনকোয়ারির অবস্থা আপডেট হয়েছে।",
+        "noteAdded": "ইন্টারনাল নোট যোগ হয়েছে।"
+      }
+    },
+    "users": {
+      "title": "ইউজার",
+      "subtitle": "প্ল্যাটফর্মের সব অ্যাকাউন্ট পরিচালনা করুন।",
+      "loadError": "ইউজার লোড করা যায়নি।",
+      "searchPlaceholder": "নাম, ফোন, ইমেইল…",
+      "empty": "এই ফিল্টারে কোনো ইউজার নেই।",
+      "open": "খুলুন",
+      "tabs": {
+        "all": "সব",
+        "sellers": "বিক্রেতা",
+        "admins": "অ্যাডমিন",
+        "suspended": "স্থগিত"
+      },
+      "columns": {
+        "user": "ইউজার",
+        "role": "রোল",
+        "status": "অবস্থা",
+        "properties": "প্রপার্টি",
+        "joined": "যোগদান",
+        "action": "কার্যক্রম"
+      }
+    },
+    "userDetail": {
+      "backToList": "ইউজার তালিকায় ফিরুন",
+      "loading": "ইউজার লোড হচ্ছে…",
+      "notFound": "ইউজার পাওয়া যায়নি।",
+      "sections": {
+        "profile": "প্রোফাইল",
+        "properties": "সাম্প্রতিক প্রপার্টি",
+        "inquiries": "সাম্প্রতিক ইনকোয়ারি",
+        "actions": "কার্যক্রম"
+      },
+      "fields": {
+        "name": "নাম",
+        "email": "ইমেইল",
+        "phone": "ফোন",
+        "role": "রোল",
+        "status": "অবস্থা",
+        "verified": "যাচাইকৃত",
+        "joined": "যোগদান",
+        "lastLogin": "সর্বশেষ লগইন"
+      },
+      "actions": {
+        "suspend": "অ্যাকাউন্ট স্থগিত করুন",
+        "activate": "অ্যাকাউন্ট সক্রিয় করুন",
+        "cancel": "বাতিল",
+        "submitting": "পাঠানো হচ্ছে…"
+      },
+      "forms": {
+        "suspendReason": "কারণ (বাধ্যতামূলক, অডিট লগে যাবে)"
+      },
+      "flash": {
+        "suspended": "ইউজার স্থগিত হয়েছে।",
+        "activated": "ইউজার সক্রিয় হয়েছে।"
+      },
+      "propertiesEmpty": "কোনো প্রপার্টি নেই।",
+      "inquiriesEmpty": "কোনো ইনকোয়ারি নেই।"
+    },
+    "audit": {
+      "title": "অডিট লগ",
+      "subtitle": "প্রতিটি অ্যাডমিন কার্যক্রম — অপরিবর্তনীয় ও সময়সহ।",
+      "loadError": "অডিট লগ লোড করা যায়নি।",
+      "empty": "এখনো কোনো অডিট এন্ট্রি নেই।",
+      "filters": {
+        "entityType": "এনটিটি ধরন",
+        "action": "কার্যক্রম",
+        "all": "সব"
+      },
+      "columns": {
+        "actor": "কর্তা",
+        "action": "কার্যক্রম",
+        "entity": "এনটিটি",
+        "changes": "পরিবর্তন",
+        "time": "সময়"
+      },
+      "view": "দেখুন"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# 📍 /infrastructure/systemd/property-backup.timer
+# Copy to: /etc/systemd/system/property-backup.timer
+# Enable:  sudo systemctl enable --now property-backup.timer
+
+[Unit]
+Description=Daily backup at 02:00 UTC
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

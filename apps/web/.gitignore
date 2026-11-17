@@ -1,0 +1,12 @@
+# 📍 /apps/web/.gitignore
+.next/
+.turbo/
+node_modules/
+next-env.d.ts
+*.tsbuildinfo
+
+# Playwright
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/.playwright/
+playwright/.cache/
