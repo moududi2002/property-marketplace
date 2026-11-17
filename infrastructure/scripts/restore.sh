@@ -34,4 +34,4 @@ echo "▶ Starting API…"
 pm2 start property-api
 
 echo "✅ Restore complete. Verify health:"
-curl -sf http://localhost:4000/health | jq
+curl -sf http://localhost:4035/health | jq

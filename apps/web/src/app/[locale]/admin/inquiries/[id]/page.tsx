@@ -75,7 +75,7 @@ export default function AdminInquiryDetailPage() {
 
   function flashMessage(msg: string): void {
     setFlash(msg);
-    setTimeout(() => setFlash(null), 3000);
+    setTimeout(() => setFlash(null), 3035);
   }
 
   async function handleUpdateStatus(e: React.FormEvent): Promise<void> {

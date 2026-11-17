@@ -2,7 +2,7 @@
 
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.APP_URL ?? "http://localhost:3000";
+const BASE_URL = process.env.APP_URL ?? "http://localhost:3035";
 
 export default function robots(): MetadataRoute.Robots {
   return {

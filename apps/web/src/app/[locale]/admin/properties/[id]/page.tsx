@@ -72,7 +72,7 @@ export default function AdminPropertyReviewPage() {
     setProperty(updated);
     setAction(null);
     setFlash(message);
-    setTimeout(() => setFlash(null), 4000);
+    setTimeout(() => setFlash(null), 4035);
     router.refresh();
   }
 

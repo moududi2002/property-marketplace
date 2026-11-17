@@ -1,7 +1,7 @@
 // 📍 /apps/web/playwright.config.ts
 //
 // E2E test config. Assumes API + Web are already running on their
-// default ports (4000 & 3000). Change `baseURL` if your dev setup differs.
+// default ports (4035 & 3035). Change `baseURL` if your dev setup differs.
 
 import { defineConfig, devices } from "@playwright/test";
 
@@ -16,7 +16,7 @@ export default defineConfig({
   expect: { timeout: 10_000 },
 
   use: {
-    baseURL: process.env.E2E_BASE_URL ?? "http://localhost:3000",
+    baseURL: process.env.E2E_BASE_URL ?? "http://localhost:3035",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",

@@ -9,7 +9,7 @@ import { z } from "zod";
 export const envSchema = z.object({
   // ─── App ──────────────────────────────────────────────
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
-  PORT: z.coerce.number().int().positive().default(4000),
+  PORT: z.coerce.number().int().positive().default(4035),
   APP_NAME: z.string().default("Property Marketplace"),
   APP_URL: z.string().url(),
   API_URL: z.string().url(),

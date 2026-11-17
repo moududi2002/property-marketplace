@@ -19,7 +19,7 @@ module.exports = {
       max_memory_restart: "500M",
       env: {
         NODE_ENV: "production",
-        PORT: 4000,
+        PORT: 4035,
       },
       error_file: "./logs/api-error.log",
       out_file: "./logs/api-out.log",
@@ -35,7 +35,7 @@ module.exports = {
       name: "property-web",
       cwd: "./apps/web",
       script: "node_modules/next/dist/bin/next",
-      args: "start -p 3000",
+      args: "start -p 3035",
       instances: 1, // Next.js runs its own clustering — 1 is enough
       exec_mode: "fork",
       autorestart: true,
@@ -43,7 +43,7 @@ module.exports = {
       max_memory_restart: "800M",
       env: {
         NODE_ENV: "production",
-        PORT: 3000,
+        PORT: 3035,
       },
       error_file: "./logs/web-error.log",
       out_file: "./logs/web-out.log",

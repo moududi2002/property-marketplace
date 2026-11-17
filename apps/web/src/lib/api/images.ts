@@ -8,7 +8,7 @@ import { apiFetch } from "@/lib/api";
 import type { PropertyImagePublic } from "@property-marketplace/shared-types";
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4035/api/v1";
 
 export async function listImages(
   propertyId: string,

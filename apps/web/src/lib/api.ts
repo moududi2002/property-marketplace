@@ -12,7 +12,7 @@
 import { ApiError } from "./api-error";
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4035/api/v1";
 
 interface RequestOptions extends Omit<RequestInit, "body"> {
   body?: unknown;

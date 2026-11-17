@@ -58,7 +58,7 @@ export class NotificationsGateway
 
   onModuleInit(): void {
     // Tighten CORS after the Server instance is available.
-    const appUrl = this.config.get<string>("APP_URL") ?? "http://localhost:3000";
+    const appUrl = this.config.get<string>("APP_URL") ?? "http://localhost:3035";
     this.server.engine.opts.cors = {
       origin: [appUrl],
       credentials: true,

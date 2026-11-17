@@ -74,7 +74,7 @@ export default async function PropertyPage({ params }: PageProps) {
   const property = await fetchProperty(slug);
   if (!property) notFound();
 
-  const baseUrl = process.env.APP_URL ?? "http://localhost:3000";
+  const baseUrl = process.env.APP_URL ?? "http://localhost:3035";
   const jsonLd = buildPropertyJsonLd(property, baseUrl, locale);
 
   return (

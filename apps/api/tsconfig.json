@@ -2,11 +2,15 @@
 {
   "extends": "@property-marketplace/typescript-config/nestjs.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts", "prisma/**/*.ts"],
-  "exclude": ["node_modules", "dist", "test", "**/*.spec.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*.spec.ts"
+  ]
 }

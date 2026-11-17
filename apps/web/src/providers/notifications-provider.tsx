@@ -26,7 +26,7 @@ import { useAuth } from "./auth-provider";
 const SOCKET_URL =
   process.env.NEXT_PUBLIC_SOCKET_URL ??
   process.env.NEXT_PUBLIC_API_URL?.replace("/api/v1", "") ??
-  "http://localhost:4000";
+  "http://localhost:4035";
 
 interface NotificationsContextValue {
   items: NotificationItem[];

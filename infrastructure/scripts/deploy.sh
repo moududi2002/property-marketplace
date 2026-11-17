@@ -87,7 +87,7 @@ ok "Nginx reloaded"
 # ─── 9. Health check ────────────────────────────────────────
 log "Waiting for API health…"
 for i in {1..30}; do
-  if curl -sf http://localhost:4000/health > /dev/null; then
+  if curl -sf http://localhost:4035/health > /dev/null; then
     ok "API is healthy"
     break
   fi

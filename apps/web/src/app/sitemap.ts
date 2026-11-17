@@ -6,12 +6,12 @@
 import type { MetadataRoute } from "next";
 import type { PaginatedResponse, PropertyCard } from "@property-marketplace/shared-types";
 
-const BASE_URL = process.env.APP_URL ?? "http://localhost:3000";
+const BASE_URL = process.env.APP_URL ?? "http://localhost:3035";
 
 export const revalidate = 3600; // 1 hour
 
 async function fetchAllPublishedSlugs(): Promise<string[]> {
-  const API_BASE = `${process.env.API_URL ?? "http://localhost:4000"}/api/v1`;
+  const API_BASE = `${process.env.API_URL ?? "http://localhost:4035"}/api/v1`;
   const slugs: string[] = [];
   let page = 1;
 

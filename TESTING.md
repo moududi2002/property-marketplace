@@ -6,8 +6,8 @@ Run through this list before every production deployment.
 
 ## Environment Pre-Flight
 - [ ] Docker services running: `docker compose ps` → postgres, redis, minio all healthy
-- [ ] API server: `curl http://localhost:4000/health` → `"status": "ok"`
-- [ ] Web server running on :3000
+- [ ] API server: `curl http://localhost:4035/health` → `"status": "ok"`
+- [ ] Web server running on :3035
 - [ ] Seed run: admin + categories + locations present in Prisma Studio
 
 ## Authentication

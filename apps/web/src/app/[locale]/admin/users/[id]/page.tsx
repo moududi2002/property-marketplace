@@ -65,7 +65,7 @@ export default function AdminUserDetailPage() {
       setFlash(
         updated.status === "SUSPENDED" ? t("flash.suspended") : t("flash.activated"),
       );
-      setTimeout(() => setFlash(null), 3000);
+      setTimeout(() => setFlash(null), 3035);
       router.refresh();
     } catch (err) {
       setActionError(err instanceof ApiError ? err.message : "Failed");

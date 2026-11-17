@@ -7,7 +7,7 @@
 // - Never throws on error — returns null so callers can show a
 //   graceful empty state instead of crashing the whole page.
 
-const API_BASE = `${process.env.API_URL ?? "http://localhost:4000"}/api/v1`;
+const API_BASE = `${process.env.API_URL ?? "http://localhost:4035"}/api/v1`;
 
 export async function serverFetch<T>(
   path: string,
